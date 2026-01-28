@@ -64,7 +64,7 @@ func main() {
 	stmt := parser.MustParse(command)
 
 	// 2. Generate the bytecode
-	instructions := generator.Generate[types.Entry](stmt)
+	instructions := generator.Generate(stmt, &types.EntryConstructor{})
 
 	// 3. Configure the virtual machine
 	m := machine.NewMachine(
